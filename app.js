@@ -2,15 +2,13 @@ var express = require('express');
 var app = express();
 
 app.get('/', function(req, res) {
-	res.send('Hello Express');
+	res.sendFile(__dirname + '/views/index.html');
 });
 
-// Routes start with the structure 'app.METHOD(PATH, HANDLER)'
-
-// Method could be GET, Post, PATCH, Delete in lowercase.
-
-// The PATH is the path where you will sent. This could be / /posts /blogs /products .app
-
-// The handler is called when the route getMatchedCSSRules.
-
 module.exports = app;
+
+// The sendFile method responds to a request by sending a File.
+
+// __dirname is the Node global variable for the absolute path.
+
+// /views/index.html is the file that we want to send
