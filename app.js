@@ -2,19 +2,18 @@ var express = require('express');
 var app = express();
 
 app.get('/', function(req, res) {
-	res.sendFile(__dirname + '/views/index.html');
+	res.send('Hello Express');
 });
 
 app.get('/json', (req, res) => {
-	res.json({
-		message: 'Hello json'
-	});
+	if (process.env.MESSAGE_STYLE === 'uppercase') {
+		res.json({ message: 'HELLO JSON' });
+	}
+	res.json({ message: 'Hello json' });
 });
-
-app.use('/public', express.static(__dirname + '/public'));
 
 module.exports = app;
 
-// In this exercise we use the /json path.
+// The chapter dealt with .env file that is created to hold private data that the client should not have access to .Within the .env file, one most use capital letters that will used for the variable.
 
-// .JSON is the method that is used for a simple API call. Notice the format of the object.
+// In order for the variable to called  you must use the process.env. + variable name whereever you going to use it.
