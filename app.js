@@ -5,10 +5,10 @@ app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/views/index.html');
 });
 
+app.use('/public', express.static(__dirname + '/public'));
+
 module.exports = app;
 
-// The sendFile method responds to a request by sending a File.
+// Using the method .USE will create a place where static assets can be placed.
 
-// __dirname is the Node global variable for the absolute path.
-
-// /views/index.html is the file that we want to send
+// .STATIC is used a middleware where the absolutee path is placed.
