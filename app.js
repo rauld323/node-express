@@ -5,10 +5,16 @@ app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/json', (req, res) => {
+	res.json({
+		message: 'Hello json'
+	});
+});
+
 app.use('/public', express.static(__dirname + '/public'));
 
 module.exports = app;
 
-// Using the method .USE will create a place where static assets can be placed.
+// In this exercise we use the /json path.
 
-// .STATIC is used a middleware where the absolutee path is placed.
+// .JSON is the method that is used for a simple API call. Notice the format of the object.
